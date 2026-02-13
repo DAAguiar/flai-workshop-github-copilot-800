@@ -71,13 +71,11 @@ class Command(BaseCommand):
         
         for hero in marvel_heroes + dc_heroes:
             user_doc = {
-                "name": hero["name"],
-                "hero_name": hero["hero_name"],
+                "username": hero["hero_name"],  # Use hero_name as username
                 "email": hero["email"],
+                "password": "hashed_password_here",  # In production, use proper hashing
                 "team_id": hero["team"],
-                "fitness_level": random.choice(["beginner", "intermediate", "advanced", "expert"]),
-                "created_at": datetime.now(),
-                "total_points": random.randint(100, 1000)
+                "created_at": datetime.now()
             }
             users_data.append(user_doc)
 
@@ -114,13 +112,12 @@ class Command(BaseCommand):
                 date_offset = random.randint(0, 30)
                 activity_doc = {
                     "user_id": user_id,
-                    "type": activity_type["type"],
+                    "activity_type": activity_type["type"],  # Changed from "type" to "activity_type"
                     "duration": random.randint(15, 120),  # minutes
                     "distance": random.uniform(1.0, 20.0) if activity_type["unit"] in ["km", "laps"] else None,
-                    "calories_burned": random.randint(100, 800),
-                    "points_earned": random.randint(10, 100),
+                    "calories": random.randint(100, 800),  # Changed from "calories_burned" to "calories"
                     "date": datetime.now() - timedelta(days=date_offset),
-                    "notes": f"Great {activity_type['type']} session!"
+                    "created_at": datetime.now()
                 }
                 activities_data.append(activity_doc)
 
@@ -131,21 +128,33 @@ class Command(BaseCommand):
         leaderboard_data = []
         for email, user_id in user_ids.items():
             user_doc = db.users.find_one({"_id": user_id})
+            
+            # Calculate actual totals from activities
+            user_activities = list(db.activities.find({"user_id": user_id}))
+            total_activities = len(user_activities)
+            total_calories = sum(act.get("calories", 0) for act in user_activities)
+            total_duration = sum(act.get("duration", 0) for act in user_activities)
+            total_distance = sum(act.get("distance", 0.0) for act in user_activities if act.get("distance"))
+            
+            # Get team name
+            team_doc = db.teams.find_one({"_id": user_doc["team_id"]})
+            team_name = team_doc["name"] if team_doc else None
+            
             leaderboard_entry = {
                 "user_id": user_id,
-                "username": user_doc["hero_name"],
+                "username": user_doc["username"],
                 "team_id": user_doc["team_id"],
-                "total_points": user_doc["total_points"],
-                "activities_count": random.randint(5, 50),
-                "rank": 0,  # Will be calculated
-                "last_updated": datetime.now()
+                "team_name": team_name,
+                "total_activities": total_activities,
+                "total_calories": total_calories,
+                "total_duration": total_duration,
+                "total_distance": total_distance,
+                "updated_at": datetime.now()
             }
             leaderboard_data.append(leaderboard_entry)
 
-        # Sort by total_points and assign ranks
-        leaderboard_data.sort(key=lambda x: x["total_points"], reverse=True)
-        for rank, entry in enumerate(leaderboard_data, start=1):
-            entry["rank"] = rank
+        # Sort by total_calories
+        leaderboard_data.sort(key=lambda x: x["total_calories"], reverse=True)
 
         db.leaderboard.insert_many(leaderboard_data)
         self.stdout.write(self.style.SUCCESS(f'Created {len(leaderboard_data)} leaderboard entries'))
