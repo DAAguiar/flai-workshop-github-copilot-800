@@ -1,0 +1,295 @@
+/* OctoFit Tracker - Custom Bootstrap Styles */
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 50%, #FFCC70 100%);
+  background-attachment: fixed;
+}
+
+/* Navigation Enhancements */
+.navbar {
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 12px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #FFCC70 !important;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #FFD789 !important;
+  transform: translateY(-2px);
+}
+
+.nav-link {
+  color: #e0e0e0 !important;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+}
+
+.nav-link:hover {
+  color: #FFCC70 !important;
+  background-color: rgba(255, 204, 112, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Container Enhancements */
+.container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Table Enhancements */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(255, 204, 112, 0.1) 0%, rgba(200, 80, 192, 0.1) 100%);
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+}
+
+.table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Card Enhancements */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,.15);
+}
+
+.card-title {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Button Enhancements */
+.btn {
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+  border: none;
+  box-shadow: 0 4px 8px rgba(65, 88, 208, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5568dd 0%, #d865cd 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(65, 88, 208, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #00D084 0%, #00B871 100%);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 208, 132, 0.3);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #00E091 0%, #00C87E 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 208, 132, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+  border: none;
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #FF7B7B 0%, #FE6A7F 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* Badge Styles */
+.badge {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Modal Enhancements */
+.modal-content {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0,0,0,.2);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.modal-title {
+  font-weight: 700;
+}
+
+.modal-header .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* Form Enhancements */
+.form-label {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #4158D0;
+  box-shadow: 0 0 0 3px rgba(65, 88, 208, 0.15);
+  background-color: rgba(255, 204, 112, 0.05);
+}
+
+/* Loading and Error States */
+.loading-spinner {
+  text-align: center;
+  padding: 3rem;
+}
+
+.alert {
+  border-radius: 8px;
+  border: none;
+}
+
+/* Home Page Jumbotron */
+.jumbotron {
+  background: linear-gradient(135deg, rgba(65, 88, 208, 0.15) 0%, rgba(200, 80, 192, 0.15) 50%, rgba(255, 204, 112, 0.15) 100%);
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 204, 112, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 50%, #FFCC70 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Badge Enhancements */
+.badge-primary {
+  background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #00D084 0%, #00B871 100%);
+}
+
+.badge-warning {
+  background: linear-gradient(135deg, #FFCC70 0%, #FFB347 100%);
+  color: #1a1a2e;
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .table {
+    font-size: 0.875rem;
+  }
+  
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+}
